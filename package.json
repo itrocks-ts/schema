@@ -1,0 +1,51 @@
+{
+	"author": {
+		"name": "Baptiste Pillot",
+		"email": "baptiste@pillot.fr"
+	},
+	"description": "Structured representation of an RDB table, including columns, indexes, constraints, and more",
+	"devDependencies": {
+		"typescript": "~5.8"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"exports": {
+		"import": "./esm/table-schema.js",
+		"require": "./cjs/table-schema.js"
+	},
+	"files": [
+		"LICENSE",
+		"README.md",
+		"*/*.d.ts",
+		"*/*.js"
+	],
+	"homepage": "https://it.rocks",
+	"keywords": [
+		"backend",
+		"column",
+		"constraint",
+		"database",
+		"foreign",
+		"index",
+		"it.rocks",
+		"RDB",
+		"relational",
+		"schema",
+		"structure",
+		"table"
+	],
+	"license": "LGPL-3.0-or-later",
+	"name": "@itrocks/table-schema",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/itrocks-ts/table-schema.git"
+	},
+	"scripts": {
+		"build": "npm run build:cjs && npm run build:esm",
+		"build:cjs": "tsc -p tsconfig.cjs.json",
+		"build:esm": "tsc -p tsconfig.esm.json"
+	},
+	"types": "./esm/table-schema.d.ts",
+	"version": "0.0.1"
+}
