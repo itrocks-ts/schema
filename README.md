@@ -6,4 +6,4 @@
 
 # table-schema
 
-Structured representation of an RDB table, including columns, indexes, constraints, and more.
+Structured representation of an RDB table, including columns, indexes, constraints.

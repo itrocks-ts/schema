@@ -3,7 +3,7 @@
 		"name": "Baptiste Pillot",
 		"email": "baptiste@pillot.fr"
 	},
-	"description": "Structured representation of an RDB table, including columns, indexes, constraints, and more",
+	"description": "Structured representation of an RDB table, including columns, indexes, constraints",
 	"devDependencies": {
 		"typescript": "~5.8"
 	},
@@ -47,5 +47,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json"
 	},
 	"types": "./esm/table-schema.d.ts",
-	"version": "0.0.1"
+	"version": "0.0.2"
 }
