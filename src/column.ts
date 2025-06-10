@@ -5,6 +5,7 @@ interface Init
 	autoIncrement?: boolean
 	canBeNull?:     boolean
 	default?:       null | number | string | Date
+	formerNames?:   string[]
 }
 
 export class Column implements Init
@@ -12,6 +13,7 @@ export class Column implements Init
 	autoIncrement: boolean = false
 	canBeNull:     boolean = false
 	default?:      null | number | string | Date
+	formerNames:   string[] = []
 	name:          string
 	type:          Type
 
@@ -28,6 +30,9 @@ export class Column implements Init
 	cleanupDefault()
 	{
 		if ((this.default === undefined) || (this.default === null)) {
+			if ((this.default === null) && !this.canBeNull) {
+				this.default = undefined
+			}
 			return
 		}
 		switch (this.type.name) {
