@@ -10,7 +10,7 @@ interface Init
 	zeroFill?:       boolean
 }
 
-export type TypeName = 'bit' | 'boolean' | 'blob' | 'date' | 'datetime' | 'enum' | 'float' | 'integer'
+export type TypeName = 'bit' | 'boolean' | 'blob' | 'date' | 'datetime' | 'decimal' | 'enum' | 'float' | 'integer'
 	| 'set' | 'string' | 'time' | 'timestamp' | 'year'
 
 export class Type implements Init
@@ -50,6 +50,11 @@ export class Type implements Init
 	static dateTime()
 	{
 		return new Type('datetime')
+	}
+
+	static decimal(length: number, precision: number, signed = true)
+	{
+		return new Type('decimal', { length, precision, signed })
 	}
 
 	static enum(...values: string[])
