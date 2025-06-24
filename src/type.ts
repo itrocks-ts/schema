@@ -3,6 +3,7 @@ interface Init
 {
 	collate?:        string
 	length?:         number
+	maxValue?:       bigint | number | string | Date
 	precision?:      number
 	signed?:         boolean
 	values?:         string[]
@@ -15,14 +16,15 @@ export type TypeName = 'bit' | 'boolean' | 'blob' | 'date' | 'datetime' | 'decim
 
 export class Type implements Init
 {
-	collate?:       string
-	length?:        number
-	name:           TypeName
-	precision?:     number
-	signed?:        boolean
-	values?:        string[]
-	variableLength: boolean = false
-	zeroFill?:      boolean
+	collate?:        string
+	length?:         number
+	maxValue?:       bigint | number | string | Date
+	name:            TypeName
+	precision?:      number
+	signed         = false
+	values?:         string[]
+	variableLength = false
+	zeroFill       = false
 
 	constructor(name: TypeName, init?: Init)
 	{
@@ -32,69 +34,82 @@ export class Type implements Init
 		}
 	}
 
-	static bit(length: number)
+	static bit(length: number, options?: Init)
 	{
-		return new Type('bit', { length })
+		const type = new Type('bit', { length })
+		return options ? Object.assign(type, options) : type
 	}
 
-	static binary(length: number, variableLength = false)
+	static binary(length: number, variableLength = false, options?: Init)
 	{
-		return new Type('blob', { length, variableLength })
+		const type = new Type('blob', { length, variableLength })
+		return options ? Object.assign(type, options) : type
 	}
 
-	static date()
+	static date(options?: Init)
 	{
-		return new Type('date')
+		const type = new Type('date')
+		return options ? Object.assign(type, options) : type
 	}
 
-	static dateTime()
+	static dateTime(options?: Init)
 	{
-		return new Type('datetime')
+		const type = new Type('datetime')
+		return options ? Object.assign(type, options) : type
 	}
 
-	static decimal(length: number, precision: number, signed = true)
+	static decimal(length: number, precision: number, signed = true, options?: Init)
 	{
-		return new Type('decimal', { length, precision, signed })
+		const type = new Type('decimal', { length, precision, signed })
+		return options ? Object.assign(type, options) : type
 	}
 
-	static enum(...values: string[])
+	static enum(values: string[], options?: Init)
 	{
-		return new Type('enum', { values })
+		const type = new Type('enum', { values })
+		return options ? Object.assign(type, options) : type
 	}
 
-	static float(precision: number, signed = true)
+	static float(precision: number, signed = true, options?: Init)
 	{
-		return new Type('float', { precision, signed })
+		const type = new Type('float', { precision, signed })
+		return options ? Object.assign(type, options) : type
 	}
 
-	static integer(length: number, signed = true)
+	static integer(maxValue?: bigint | number, signed = true, options?: Init)
 	{
-		return new Type('integer', { length, signed })
+		const type = new Type('integer', { maxValue, signed })
+		return options ? Object.assign(type, options) : type
 	}
 
-	static set(...values: string[])
+	static set(values: string[], options?: Init)
 	{
-		return new Type('set', { values })
+		const type = new Type('set', { values })
+		return options ? Object.assign(type, options) : type
 	}
 
-	static string(length: number, variableLength = false, collate?: string )
+	static string(length: number, variableLength = false, collate?: string, options?: Init)
 	{
-		return new Type('string', { collate, length, variableLength })
+		const type = new Type('string', { collate, length, variableLength })
+		return options ? Object.assign(type, options) : type
 	}
 
-	static time()
+	static time(options?: Init)
 	{
-		return new Type('time')
+		const type = new Type('time')
+		return options ? Object.assign(type, options) : type
 	}
 
-	static timestamp()
+	static timestamp(options?: Init)
 	{
-		return new Type('timestamp')
+		const type = new Type('timestamp')
+		return options ? Object.assign(type, options) : type
 	}
 
-	static year()
+	static year(options?: Init)
 	{
-		return new Type('year')
+		const type = new Type('year')
+		return options ? Object.assign(type, options) : type
 	}
 
 }
