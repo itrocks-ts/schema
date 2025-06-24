@@ -27,6 +27,12 @@ export class Column implements Init
 		this.cleanupDefault()
 	}
 
+	get charset()
+	{
+		const collate = this.type.collate
+		return collate ? collate.slice(0, collate.indexOf('_')) : undefined
+	}
+
 	cleanupDefault()
 	{
 		if ((this.default === undefined) || (this.default === null)) {

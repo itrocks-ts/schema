@@ -28,4 +28,9 @@ export class Table implements Init
 		}
 	}
 
+	get charset()
+	{
+		return this.collation.slice(0, this.collation.indexOf('_'))
+	}
+
 }
