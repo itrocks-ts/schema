@@ -21,7 +21,7 @@ export class Type implements Init
 	maxValue?:       bigint | number | string | Date
 	name:            TypeName
 	precision?:      number
-	signed         = false
+	signed?:         boolean
 	values?:         string[]
 	variableLength = false
 	zeroFill       = false
