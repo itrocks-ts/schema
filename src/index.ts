@@ -15,9 +15,9 @@ export class Index implements Init
 	public type: IndexType = 'key'
 	public unique = false
 
-	constructor(name: string, keys: IndexKey[] = [], init?: Init)
+	constructor(name: string, keys: IndexKey | IndexKey[] = [], init?: Init)
 	{
-		this.keys = keys
+		this.keys = (keys instanceof IndexKey) ? [keys] : keys
 		this.name = name
 		if (init) {
 			Object.assign(this, init)
