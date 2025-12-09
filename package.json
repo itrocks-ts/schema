@@ -5,7 +5,7 @@
 	},
 	"description": "Structured representation of RDB databases, including tables, columns, indexes, constraints",
 	"devDependencies": {
-		"typescript": "~5.8"
+		"typescript": "~5.9"
 	},
 	"engines": {
 		"node": ">=18"
@@ -49,5 +49,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json"
 	},
 	"types": "./esm/schema.d.ts",
-	"version": "0.0.9"
+	"version": "0.0.10"
 }
