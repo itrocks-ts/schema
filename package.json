@@ -23,6 +23,7 @@
 	"homepage": "https://it.rocks",
 	"keywords": [
 		"backend",
+		"ddl",
 		"column",
 		"constraint",
 		"database",
@@ -49,5 +50,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json"
 	},
 	"types": "./esm/schema.d.ts",
-	"version": "0.0.10"
+	"version": "0.0.11"
 }
