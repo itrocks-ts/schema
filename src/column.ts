@@ -4,7 +4,7 @@ interface Init
 {
 	autoIncrement?: boolean
 	canBeNull?:     boolean
-	default?:       null | number | string | Date
+	default?:       any
 	formerNames?:   string[]
 }
 
@@ -12,7 +12,7 @@ export class Column implements Init
 {
 	autoIncrement: boolean = false
 	canBeNull:     boolean = false
-	default?:      null | number | string | Date
+	default?:      any
 	formerNames:   string[] = []
 	name:          string
 	type:          Type

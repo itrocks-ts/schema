@@ -50,5 +50,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json"
 	},
 	"types": "./esm/schema.d.ts",
-	"version": "0.0.11"
+	"version": "0.2.0"
 }
