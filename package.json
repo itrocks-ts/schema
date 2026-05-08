@@ -5,20 +5,17 @@
 	},
 	"description": "Structured representation of RDB databases, including tables, columns, indexes, constraints",
 	"devDependencies": {
-		"typescript": "~5.9"
+		"typescript": "^6.0"
 	},
 	"engines": {
-		"node": ">=18"
+		"node": ">=24"
 	},
-	"exports": {
-		"import": "./esm/schema.js",
-		"require": "./cjs/schema.js"
-	},
+	"exports": "./cjs/schema.js",
 	"files": [
 		"LICENSE",
 		"README.md",
-		"*/*.d.ts",
-		"*/*.js"
+		"cjs",
+		"!*.map"
 	],
 	"homepage": "https://it.rocks",
 	"keywords": [
@@ -45,10 +42,7 @@
 		"url": "git+https://github.com/itrocks-ts/schema.git"
 	},
 	"scripts": {
-		"build": "npm run build:cjs && npm run build:esm",
-		"build:cjs": "tsc -p tsconfig.cjs.json",
-		"build:esm": "tsc -p tsconfig.esm.json"
+		"build": "tsc"
 	},
-	"types": "./esm/schema.d.ts",
-	"version": "0.2.0"
+	"version": "0.2.1"
 }
